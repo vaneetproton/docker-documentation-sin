@@ -27,5 +27,47 @@ WSL means Windows Subsystem for Linux from Microsoft which lets developers run a
 ## Linux Distro Setup
 1. Open ** Microsoft Store** on your machine and install `Debain App`.
    ![image](img/debian-MS.png)
+
 2. After successful installation, you should be able to open it from the `Start` window.
    ![image](img/debian-start.png)
+
+3. After opening it, you should see a terminal like below.
+   ![image](img/cmd-deb.png)
+
+4. On opening it first time, it would ask you set the password for your user. After setting the password, please run the below commands.
+   ```
+   $ sudo su -
+   <Type Your Password>
+   $ apt-get update
+   $ apt install wget curl net-tools vim iputils-ping telnet
+   $ ln -s /c/Program\ Files/Docker/Docker/resources/bin/docker.exe /usr/local/bin/docker
+   $ ln -s /c/Program\ Files/Docker/Docker/resources/bin/docker-compose.exe /usr/local/bin/docker-compose
+   $ apt-get install ruby ruby-dev
+   $ gem install docker-sync
+   $ echo "export DOCKER_HOST=tcp://127.0.0.1:2375" >> ~/.bashrc
+   $ apt-get install build-essential
+   $ apt-get install make
+   $ wget https://caml.inria.fr/pub/distrib/ocaml-4.12/ocaml-4.12.0.tar.gz
+   $ tar xvf ocaml-4.12.0.tar.gz
+   $ cd ocaml-4.12.0
+   $ ./configure
+   $ make world
+   $ make opt
+   $ umask 022
+   $ make install
+   $ make clean
+   $ wget https://github.com/bcpierce00/unison/archive/refs/tags/v2.52.1.tar.gz
+   $ tar xvf v2.52.1.tar.gz
+   $ cd unison-2.52.1
+   $ make UISTYLE=text
+   $ cp src/unison /usr/local/bin/unison
+   $ cp src/unison-fsmonitor /usr/local/bin/unison-fsmonitor
+   $ mkdir /code
+   $ mount --bind <path-to-project-folder-on-windows> /code
+   $ echo "sudo mount --bind <path-to-project-folder-on-windows> /code" >> ~/.bashrc && source ~/.bashrc
+   $ sudo visudo
+   ```
+Add the following at the bottom of the file, replacing "username" with your WSL username.
+   ```
+   username ALL=(root) NOPASSWD: /bin/mount
+   ```
