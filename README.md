@@ -83,5 +83,6 @@ Add the following at the bottom of the file, replacing "username" with your WSL 
    ![image](img/docker2.png)
 
 3. Open `Control Panel` on your Windows machine and click on `Programs and Features`, after that click on `Turn Windows features on or off`, it will open a small window, please make sure that **Hyper-V** option is enabled in that small window.
+   ![image](img/windows1.png)
 
 4. Restart your computer.
