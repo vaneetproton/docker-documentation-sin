@@ -42,14 +42,14 @@ WSL means Windows Subsystem for Linux from Microsoft which lets developers run a
    $ sudo su -
    <Type Your Password>
    $ apt-get update
-   $ apt install wget curl net-tools vim iputils-ping telnet
+   $ apt install wget curl net-tools vim iputils-ping telnet -y
    $ ln -s /c/Program\ Files/Docker/Docker/resources/bin/docker.exe /usr/local/bin/docker
    $ ln -s /c/Program\ Files/Docker/Docker/resources/bin/docker-compose.exe /usr/local/bin/docker-compose
-   $ apt-get install ruby ruby-dev
+   $ apt-get install ruby ruby-dev -y
    $ gem install docker-sync
    $ echo "export DOCKER_HOST=tcp://127.0.0.1:2375" >> ~/.bashrc
-   $ apt-get install build-essential
-   $ apt-get install make
+   $ apt-get install build-essential -y
+   $ apt-get install make -y
    $ wget https://caml.inria.fr/pub/distrib/ocaml-4.12/ocaml-4.12.0.tar.gz
    $ tar xvf ocaml-4.12.0.tar.gz
    $ cd ocaml-4.12.0
