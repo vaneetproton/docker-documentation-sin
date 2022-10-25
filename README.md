@@ -3,11 +3,11 @@ Please follow this documentation for setting up the local development environmen
 
 ## Project Folder Structure
 
-Projects
-|__magento-v243-website
-|__PricingAPI
-|__flastdesigner_nodejs
-|__docker
+Projects.
+|__magento-v243-website.
+|__PricingAPI.
+|__flastdesigner_nodejs.
+|__docker.
 
 #### GIT
 Please make sure that you have `git clone` all the required repositories on to your machine before proceeding further. If you don't have **GIT** already installed on your machine, please install it using the following [steps](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
