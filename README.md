@@ -22,7 +22,7 @@ Also make sure that **docker** is installed on your machine. If not, please down
 
 [macOS](https://docs.docker.com/desktop/install/mac-install/)
 
-**Download Flatdesigner Nodejs API from this [link](http://112.196.9.87/flatdesigner_nodejs.tgz)**
+**Download Flatdesigner Nodejs API from this [link](http://112.196.9.87/flatdesigner_nodejs.tgz).**
 
 ## Install WSL on Windows OS
 WSL means Windows Subsystem for Linux from Microsoft which lets developers run a Linux environment -- including most command line tools, utilities, and applications -- directly on Windows.
@@ -51,8 +51,8 @@ WSL means Windows Subsystem for Linux from Microsoft which lets developers run a
    <Type Your Password>
    $ apt-get update
    $ apt install wget curl net-tools vim iputils-ping telnet -y
-   $ ln -s /c/Program\ Files/Docker/Docker/resources/bin/docker.exe /usr/local/bin/docker
-   $ ln -s /c/Program\ Files/Docker/Docker/resources/bin/docker-compose.exe /usr/local/bin/docker-compose
+   $ ln -s /mnt/c/Program\ Files/Docker/Docker/resources/bin/docker.exe /usr/local/bin/docker
+   $ ln -s /mnt/c/Program\ Files/Docker/Docker/resources/bin/docker-compose.exe /usr/local/bin/docker-compose
    $ apt-get install ruby ruby-dev -y
    $ gem install docker-sync
    $ echo "export DOCKER_HOST=tcp://127.0.0.1:2375" >> ~/.bashrc
