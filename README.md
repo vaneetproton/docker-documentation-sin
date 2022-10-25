@@ -1,6 +1,14 @@
 # Introduction
 Please follow this documentation for setting up the local development environment with Docker on your local machine.
 
+## Project Folder Structure
+
+Projects
+|__magento-v243-website
+|__PricingAPI
+|__flastdesigner_nodejs
+|__docker
+
 #### GIT
 Please make sure that you have `git clone` all the required repositories on to your machine before proceeding further. If you don't have **GIT** already installed on your machine, please install it using the following [steps](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
@@ -71,3 +79,14 @@ Add the following at the bottom of the file, replacing "username" with your WSL 
    ```
    username ALL=(root) NOPASSWD: /bin/mount
    ```
+
+## HyperV and Docker setup
+1. Open `Docker Desktop` application on your Windows machine and goto `Settings` and in `General` tab please enable the checkbox for `Expose daemon on   tcp://localhost:2375 without TLS` as shown in the image below.
+   ![image](img/docker1.png)
+
+2. Go to `WSL Integration` under `Resources` tab and enable the integration with the newly setup Linux Distro, in our case it is Debian and click on `Apply & restart` as shown in the image below.
+   ![image](img/docker2.png)
+
+3. Open `Control Panel` on your Windows machine and click on `Programs and Features`, after that click on `Turn Windows features on or off`, it will open a small window, please make sure that **Hyper-V** option is enabled in that small window.
+
+4. Restart your computer.
