@@ -21,3 +21,4 @@ WSL means Windows Subsystem for Linux from Microsoft which lets developers run a
    ```
    wsl --install
    ```
+   [image](img/install-wsl-windows-11-command.webp)
