@@ -28,7 +28,7 @@ WSL means Windows Subsystem for Linux from Microsoft which lets developers run a
 3. Restart your computer to finish the WSl installation on Windows 10 & 11.
 
 ## Linux Distro Setup
-1. Open ** Microsoft Store** on your machine and install `Debain App`.
+1. Open **Microsoft Store** on your machine and install `Debain App`.
    ![image](img/debian-MS.png)
 
 2. After successful installation, you should be able to open it from the `Start` window.
