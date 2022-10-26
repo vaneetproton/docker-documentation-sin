@@ -123,13 +123,17 @@ Now to save the changes, press `Ctrl + X`, then `y` and press **Enter**.
 - Upon completion, it will ask you to reboot the system, type `y` and press **Enter**.
 
 ## Run Docker Sync
- - After successful restart of the system, goto the `projects/docker` directory and open `docker-sync.yml` file in any editor. On line number 5, you should see something like below.
+ - After successful restart of the system, goto the `projects/docker` directory on Windows machine and open `docker-sync.yml` file in any editor. On line number 5, you should see something like below.
    ```
    src: '../magsin'
    ```
- - Change the `magsin` with your Magento directory name, like if your Magento code is in `magento_v2_migrated`, update it like shown below.
+ - Change the `magsin` with your Magento directory name, like if your Magento code is in `magento_v2_migrated`, update it like shown below and save the file.
    ```
    src: '../magento_v2_migrated'
+   ```
+ - Similarly, on line number 22, you will find `src: '../magsin/vendor'`, update it too like shown below.
+   ```
+   src: '../magento_v2_migrated/vendor'
    ```
 
  - open `Debian Terminal` from the start window and run the below commands.
