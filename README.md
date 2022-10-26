@@ -45,7 +45,7 @@ WSL means Windows Subsystem for Linux from Microsoft which lets developers run a
    $ sudo su -
    <Type Your Password>
    $ apt-get update
-   $ apt install wget curl net-tools vim iputils-ping telnet make autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git-core -y
+   $ apt install wget curl net-tools vim iputils-ping telnet make autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git-core unzip -y
    $ ln -s /mnt/c/Program\ Files/Docker/Docker/resources/bin/docker.exe /usr/local/bin/docker
    $ ln -s /mnt/c/Program\ Files/Docker/Docker/resources/bin/docker-compose.exe /usr/local/bin/docker-compose
    $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -80,6 +80,10 @@ Now we will mount the Project or Github folder on Windows machine to this Docker
    $ mkdir /code
    $ mount --bind <path-to-project-folder-on-windows> /code
    $ echo "sudo mount --bind <path-to-project-folder-on-windows> /code" >> ~/.bashrc && source ~/.bashrc
+   $ cd ~/
+   $ wget http://104.251.216.173/Downloads/files_tmp.zip
+   $ unzip files_tmp.zip
+   $ mv files_tmp/* /code/flatdesigner_nodejs
    ```
 Now 
 Add the following at the bottom of the file, replacing "username" with your WSL username.
