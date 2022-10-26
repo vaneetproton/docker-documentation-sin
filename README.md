@@ -1,6 +1,18 @@
 # Introduction
 Please follow this documentation for setting up the local development environment with Docker on your local machine.
 
+#### GIT
+Please make sure that you have `git clone` all the required repositories on to your machine before proceeding further. If you don't have **GIT** already installed on your machine, please install it using the following [steps](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+
+#### Docker
+Also make sure that **docker** is installed on your machine. If not, please download and install it using below links.
+
+[Linux](https://docs.docker.com/desktop/install/linux-install/)
+
+[Windows](https://docs.docker.com/desktop/install/windows-install/)
+
+[macOS](https://docs.docker.com/desktop/install/mac-install/)
+
 ## Project Folder Structure
 ```
 Projects
@@ -13,18 +25,6 @@ Projects
 - You can download **Flatdesigner Nodejs API** from [here](http://104.251.216.173/Downloads/flatdesigner_nodejs.tgz) and extract it into your Projects folder.
 - Download the latest **Docker** folder from [here](http://104.251.216.173/Downloads/docker.zip) and extract it into your Projects folder.
 - Download MySQL database for your Magento website, if you don't have it already on your machine. You can download it in ZIP format from [here](http://104.251.216.173/Downloads/db.zip) and extract the zip file into `Projects/docker/sql-db` directory.
-
-#### GIT
-Please make sure that you have `git clone` all the required repositories on to your machine before proceeding further. If you don't have **GIT** already installed on your machine, please install it using the following [steps](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-
-#### Docker
-Also make sure that **docker** is installed on your machine. If not, please download and install it using below links.
-
-[Linux](https://docs.docker.com/desktop/install/linux-install/)
-
-[Windows](https://docs.docker.com/desktop/install/windows-install/)
-
-[macOS](https://docs.docker.com/desktop/install/mac-install/)
 
 
 ## Install WSL on Windows OS
