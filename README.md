@@ -27,16 +27,19 @@ Projects
 - Download MySQL database for your Magento website, if you don't have it already on your machine. You can download it in ZIP format from [here](http://104.251.216.173/Downloads/db.zip) and extract the zip file into `Projects/docker/sql-db` directory.
 
 
-## Install WSL on Windows OS
+## Install WSL Distro on Windows OS
 WSL means Windows Subsystem for Linux from Microsoft which lets developers run a Linux environment -- including most command line tools, utilities, and applications -- directly on Windows.
 **How to install WSL on Windows 10 & 11**
 1. Open **Command Prompt** as an **Administrator** on your Windows machine.
 2. Type the following to install the WSL on Windows 10 & 11 and press **Enter**.
    ```
-   wsl --install
+   wsl --install -d Debian
    ```
-   ![image](img/install-wsl-windows-11-command.jpg)
-3. Restart your computer to finish the WSl installation on Windows 10 & 11.
+   ![image](img/1.png)
+3. After it is completed, it will open a `Debian Terminal` like shown the image below.
+   ![image](img/2.png)
+4. Enter **Username** and **Password** you want to set for your Debian App.
+   ![image](img/3.png)
 
 ## Linux Distro Setup
 1. Open **Microsoft Store** on your machine and install `Debain App`.
