@@ -20,7 +20,8 @@ Projects
 |__flatdesigner_nodejs
 |__docker
 ```
-## Points to remember and double check
+## Important points to remember and double check
+- If there is error at any step of this document, please stop the process and contact Vaneet.
 - Please make sure you have cloned the Magento website into the project folder.
 - You can download **Flatdesigner Nodejs API** from [here](http://104.251.216.173/Downloads/flatdesigner_nodejs.tgz) and extract it into your Projects folder.
 - Download the latest **Docker** folder from [here](http://104.251.216.173/Downloads/docker.zip) and extract it into your Projects folder.
@@ -106,17 +107,37 @@ Now to save the changes, press `Ctrl + X`, then `y` and press **Enter**.
 3. Open `Control Panel` on your Windows machine and click on `Programs and Features`, after that click on `Turn Windows features on or off`, it will open a small window, please make sure that **Hyper-V** option is enabled in that small window.
    ![image](img/windows1.png)
 
-**Note:** It is possible that Windows Home editions you won't find **Hyper-V** option shown in the above image. In that case, please follow the below steps.
+**Note:** It is possible that in Windows Home editions you won't find **Hyper-V** option shown in the above image. In that case, please follow the below steps.
 - Open **Notepad** on your Windows machine.
 - Paste below lines into the notepad.
-  ```
-  pushd "%~dp0"
-  dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum >hv.txt
-  for /f %%i in ('findstr /i . hv.txt 2^>nul') do dism /online /norestart /add-package:"%SystemRoot%\servicing\Packages\%%i"
-  del hv.txt
-  Dism /online /enable-feature /featurename:Microsoft-Hyper-V -All /LimitAccess /ALL
-  pause
-  ```
+   ```
+   pushd "%~dp0"
+   dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum >hv.txt
+   for /f %%i in ('findstr /i . hv.txt 2^>nul') do dism /online /norestart /add-package:"%SystemRoot%\servicing\Packages\%%i"
+   del hv.txt
+   Dism /online /enable-feature /featurename:Microsoft-Hyper-V -All /LimitAccess /ALL
+   pause
+   ```
 - Save the file on your Desktop and name it **Hyperv.bat**.
-- Open your Desktop folder where you saved the **.bat** file in the earlier step and Right-Click on it and click on **Run as Administrator**.
+- Open your Desktop folder where you saved the **.bat** file in the earlier step and Right-Click on the file and click on **Run as Administrator**.
 - Upon completion, it will ask you to reboot the system, type `y` and press **Enter**.
+
+## Run Docker Sync
+ - After successful restart of the system, goto the `projects/docker` directory and open `docker-sync.yml` file in any editor. On line number 5, you should see something like below.
+   ```
+   src: '../magsin'
+   ```
+ - Change the `magsin` with your Magento directory name, like if your Magento code is in `magento_v2_migrated`, update it like shown below.
+   ```
+   src: '../magento_v2_migrated'
+   ```
+
+ - open `Debian Terminal` from the start window and run the below commands.
+   ```
+   sudo su -
+   <Type_your_password>
+   cd /code/docker
+   mkdir -p vendor
+   docker-sync start
+   ```
+ - The **docker-sync start** command will take couple of hours to sync everything. Please wait for it to complete and **only proceed further when it's done**.
