@@ -40,31 +40,25 @@ WSL means Windows Subsystem for Linux from Microsoft which lets developers run a
    ![image](img/2.png)
 4. Enter **Username** and **Password** you want to set for your Debian App.
    ![image](img/3.png)
-
-## Linux Distro Setup
-1. Open **Microsoft Store** on your machine and install `Debain App`.
-   ![image](img/debian-MS.png)
-
-2. After successful installation, you should be able to open it from the `Start` window.
-   ![image](img/debian-start.png)
-
-3. After opening it, you should see a terminal like below.
-   ![image](img/cmd-deb.png)
-
-4. On opening it first time, it would ask you set the password for your user. After setting the password, please run the below commands.
+5. Now we will be running few commands on this terminal.
    ```
    $ sudo su -
    <Type Your Password>
    $ apt-get update
-   $ apt install wget curl net-tools vim iputils-ping telnet -y
+   $ apt install wget curl net-tools vim iputils-ping telnet make autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git-core -y
    $ ln -s /mnt/c/Program\ Files/Docker/Docker/resources/bin/docker.exe /usr/local/bin/docker
    $ ln -s /mnt/c/Program\ Files/Docker/Docker/resources/bin/docker-compose.exe /usr/local/bin/docker-compose
-   $ apt-get install ruby ruby-dev -y
+   $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+   $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+   $ echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+   $ source ~/.bashrc
+   $ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+   $ rbenv install 2.7.6
+   $ rbenv global 2.7.6
    $ gem install docker-sync
    $ echo "export DOCKER_HOST=tcp://127.0.0.1:2375" >> ~/.bashrc
-   $ apt-get install build-essential -y
-   $ apt-get install make -y
-   $ wget https://caml.inria.fr/pub/distrib/ocaml-4.12/ocaml-4.12.0.tar.gz
+   $ cd ~/
+   $ wget --no-check-certificate https://caml.inria.fr/pub/distrib/ocaml-4.12/ocaml-4.12.0.tar.gz
    $ tar xvf ocaml-4.12.0.tar.gz
    $ cd ocaml-4.12.0
    $ ./configure
@@ -73,17 +67,21 @@ WSL means Windows Subsystem for Linux from Microsoft which lets developers run a
    $ umask 022
    $ make install
    $ make clean
+   $ cd ~/
    $ wget https://github.com/bcpierce00/unison/archive/refs/tags/v2.52.1.tar.gz
    $ tar xvf v2.52.1.tar.gz
    $ cd unison-2.52.1
    $ make UISTYLE=text
    $ cp src/unison /usr/local/bin/unison
    $ cp src/unison-fsmonitor /usr/local/bin/unison-fsmonitor
+   ```
+Now we will mount the Project or Github folder on Windows machine to this Docker terminal. Please make sure you change the `<path-to-project-folder-on-windows>` to the actual path on your Windows machine. If your project folder is in `C:\Github` drive, the path below would be `/mnt/c/Github`.
+   ```
    $ mkdir /code
    $ mount --bind <path-to-project-folder-on-windows> /code
    $ echo "sudo mount --bind <path-to-project-folder-on-windows> /code" >> ~/.bashrc && source ~/.bashrc
-   $ sudo visudo
    ```
+Now 
 Add the following at the bottom of the file, replacing "username" with your WSL username.
    ```
    username ALL=(root) NOPASSWD: /bin/mount
