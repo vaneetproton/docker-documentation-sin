@@ -83,13 +83,18 @@ Now we will mount the Project or Github folder on Windows machine to this Docker
    $ cd ~/
    $ wget http://104.251.216.173/Downloads/files_tmp.zip
    $ unzip files_tmp.zip
+   $ cp files_tmp/.dockerignore /code/flatdesigner_nodejs
    $ mv files_tmp/* /code/flatdesigner_nodejs
    ```
-Now 
-Add the following at the bottom of the file, replacing "username" with your WSL username.
+Now run the below command on the terminal, it will open a file.
    ```
-   username ALL=(root) NOPASSWD: /bin/mount
+   $ sudo visudo
    ```
+Add the following at the bottom of the file, replacing "username" with your WSL username, my username is `vaneet`, so I am changing it with my username.
+   ```
+   vaneet ALL=(root) NOPASSWD: /bin/mount
+   ```
+Now to save the changes, press `Ctrl + X`, then `y` and press **Enter**.
 
 ## HyperV and Docker setup
 1. Open `Docker Desktop` application on your Windows machine and goto `Settings` and in `General` tab please enable the checkbox for `Expose daemon on   tcp://localhost:2375 without TLS` as shown in the image below.
