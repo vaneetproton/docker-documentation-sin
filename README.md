@@ -5,10 +5,14 @@ Please follow this documentation for setting up the local development environmen
 ```
 Projects
 |__magento_v243_website
-|__PricingAPI
 |__flatdesigner_nodejs
 |__docker
 ```
+## Points to remember and double check
+- Please make sure you have cloned the Magento website into the project folder.
+- You can download **Flatdesigner Nodejs API** from [here](http://104.251.216.173/Downloads/flatdesigner_nodejs.tgz) and extract it into your Projects folder.
+- Download the latest **Docker** folder from [here](http://104.251.216.173/Downloads/docker.zip) and extract it into your Projects folder.
+- Download MySQL database for your Magento website, if you don't have it already on your machine. You can download it in ZIP format from [here](http://104.251.216.173/Downloads/db.zip) and extract the zip file into `Projects/docker/sql-db` directory.
 
 #### GIT
 Please make sure that you have `git clone` all the required repositories on to your machine before proceeding further. If you don't have **GIT** already installed on your machine, please install it using the following [steps](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
@@ -22,7 +26,6 @@ Also make sure that **docker** is installed on your machine. If not, please down
 
 [macOS](https://docs.docker.com/desktop/install/mac-install/)
 
-**Download Flatdesigner Nodejs API from this [link](http://112.196.9.87/flatdesigner_nodejs.tgz).**
 
 ## Install WSL on Windows OS
 WSL means Windows Subsystem for Linux from Microsoft which lets developers run a Linux environment -- including most command line tools, utilities, and applications -- directly on Windows.
