@@ -13,21 +13,6 @@ Also make sure that **docker** is installed on your machine. If not, please down
 
 [macOS](https://docs.docker.com/desktop/install/mac-install/)
 
-## Project Folder Structure
-```
-Projects
-|__magento_v243_website
-|__flatdesigner_nodejs
-|__docker
-```
-## Important points to remember and double check
-- If there is error at any step of this document, please stop the process and contact Vaneet.
-- Please make sure you have cloned the Magento website into the project folder.
-- You can download **Flatdesigner Nodejs API** from [here](http://104.251.216.173/Downloads/flatdesigner_nodejs.tgz) and extract it into your Projects folder.
-- Download the latest **Docker** folder from [here](http://104.251.216.173/Downloads/docker.zip) and extract it into your Projects folder.
-- Download MySQL database for your Magento website, if you don't have it already on your machine. You can download it in ZIP format from [here](http://104.251.216.173/Downloads/db.zip) and extract the zip file into `Projects/docker/sql-db` directory.
-
-
 ## Install WSL Distro on Windows OS
 WSL means Windows Subsystem for Linux from Microsoft which lets developers run a Linux environment -- including most command line tools, utilities, and applications -- directly on Windows.
 **How to install WSL on Windows 10 & 11**
@@ -37,44 +22,92 @@ WSL means Windows Subsystem for Linux from Microsoft which lets developers run a
    wsl --install -d Debian
    ```
    ![image](img/1.png)
-3. After it is completed, it will open a `Debian Terminal` like shown the image below.
+3. After it is completed, it will open a `Debian Terminal` like shown in the image below.
    ![image](img/2.png)
 4. Enter **Username** and **Password** you want to set for your Debian App.
    ![image](img/3.png)
-5. Now we will be running few commands on this terminal.
+5. After setting up the username and password, install basic utilities on the Debian terminal.
    ```
-   $ sudo su -
-   <Type Your Password>
-   $ apt-get update
-   $ apt install wget curl net-tools vim iputils-ping telnet make autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git-core unzip -y
-   $ ln -s /mnt/c/Program\ Files/Docker/Docker/resources/bin/docker.exe /usr/local/bin/docker
-   $ ln -s /mnt/c/Program\ Files/Docker/Docker/resources/bin/docker-compose.exe /usr/local/bin/docker-compose
+   $ sudo apt-get update
+   $ sudo apt-get install telnet git net-tools vim curl sudo wget iputils-ping less unzip -y
+   ```
+6. Now we will create `Project` folder in the home directory using below command on Debian terminal.
+   ```
+   $ mkdir Project
+   ```
+7. Now `git clone` the **Magento website**, download **Flatdesigner_nodejs API**, and also download **docker** folder to the `Project` directory.
+   ```
+   $ cd Project
+   $ git clone https://github.com/sinalite/magento_v2_migrated.git
+   $ cd magento_v2_migrated
+   $ git checkout release-magento2-upgrade
+   $ cd ..
+   $ wget http://104.251.216.173/Downloads/flatdesigner_nodejs.zip
+   $ unzip flatdesigner_nodejs.zip
+   $ wget http://104.251.216.173/Downloads/docker.zip
+   $ unzip docker.zip
+   $ sudo rm -rf flatdesigner_nodejs.zip
+   $ sudo rm -rf docker.zip
+   ```
+**After performing above steps, you will have folder structure similar to shown below.**
+
+## Project Folder Structure
+```
+Project
+|__magento_v2_migrated
+|__flatdesigner_nodejs
+|__docker
+```
+
+## Install and setup Docker and its dependencies
+
+1. Fist we will be installing the **Docker** using below commands.
+   ```
+   $ cd ~/
+   $ sudo apt-get update
+   $ sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release ssh make autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev -y
+   $ sudo mkdir -p /etc/apt/keyrings
+   $ sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+   $ sudo echo \
+     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   $ sudo apt-get update
+   $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose -y
+   $ sudo usermod -aG docker $USER
+   $ sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+   $ sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+   $ exit
+   ```
+2. Now open the **Debian** terminal from **Start** option in Windows and setup **ruby** using below commands.
+   ```
    $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
    $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
    $ echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-   $ source ~/.bashrc
    $ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+   $ exit
+   ```
+2. Now open again the **Debian** terminal from **Start** option in Windows and setup **docker-sync** and **unison** using below commands.
+   ```
    $ rbenv install 2.7.6
    $ rbenv global 2.7.6
    $ gem install docker-sync
-   $ echo "export DOCKER_HOST=tcp://127.0.0.1:2375" >> ~/.bashrc
    $ cd ~/
    $ wget --no-check-certificate https://caml.inria.fr/pub/distrib/ocaml-4.12/ocaml-4.12.0.tar.gz
    $ tar xvf ocaml-4.12.0.tar.gz
    $ cd ocaml-4.12.0
-   $ ./configure
-   $ make world
-   $ make opt
+   $ sudo ./configure
+   $ sudo make world
+   $ sudo make opt
    $ umask 022
-   $ make install
-   $ make clean
+   $ sudo make install
+   $ sudo make clean
    $ cd ~/
    $ wget https://github.com/bcpierce00/unison/archive/refs/tags/v2.52.1.tar.gz
    $ tar xvf v2.52.1.tar.gz
    $ cd unison-2.52.1
-   $ make UISTYLE=text
-   $ cp src/unison /usr/local/bin/unison
-   $ cp src/unison-fsmonitor /usr/local/bin/unison-fsmonitor
+   $ sudo make UISTYLE=text
+   $ sudo cp src/unison /usr/local/bin/unison
+   $ sudo cp src/unison-fsmonitor /usr/local/bin/unison-fsmonitor
    ```
 Now we will mount the Project or Github folder on Windows machine to this Docker terminal. Please make sure you change the `<path-to-project-folder-on-windows>` to the actual path on your Windows machine. If your project folder is in `C:\Github` drive, the path below would be `/mnt/c/Github`.
    ```
@@ -91,7 +124,7 @@ Now run the below command on the terminal, it will open a file.
    ```
    $ sudo visudo
    ```
-Add the following at the bottom of the file, replacing "username" with your WSL username, my username is `vaneet`, so I am changing it with my username.
+Scroll down to the bottom of the file using down Arrow key and add the following at the bottom of the file, replacing "username" with your WSL username, my username is `vaneet`, so I am changing it with my username.
    ```
    vaneet ALL=(root) NOPASSWD: /bin/mount
    ```
