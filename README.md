@@ -123,7 +123,7 @@ Project
 4. On the new VS window, click on **Explorer**, then **Open Folder** and you will see a dropdown to chose from, select folder **Project** and you are good to go, as shown in the image below.
 ![vs4](img/vs4.png)
 
-#### Now it is time to setup things on **_Magento_** side. First, create the custom folders which are not present in the GIT.
+#### Now it is time to setup things on _Magento_ side. First, create the custom folders which are not present in the GIT.
 ```
 $ cd ~/Project/magento_v2_migrated
 $ mkdir -p pub/media/customer_images
@@ -136,3 +136,44 @@ $ mv pub/media/catalog/product pub/media/catalog/product-orig
 $ mkdir -p pub/media/catalog/category
 $ mkdir -p pub/media/catalog/product
 ```
+
+>Next step would be to setup **_MySQL_** configuration within the `Magento` code.
+```
+$ cd ~/Project
+$ cp app/etc/env.bak.php app/etc/env.php
+```
+
+>Now open the file **_app/etc/env.php_** in the VS Code editor and change the below piece of code.
+```
+'db' => [
+        'table_prefix' => '',
+        'connection' => [
+            'default' => [
+                'host' => '127.0.0.1',
+                'dbname' => 'magento_v2_20181204',
+                'username' => 'root',
+                'password' => '666666',
+                'active' => '1'
+            ]
+        ]
+    ],
+```
+
+#### TO
+
+```
+'db' => [
+        'table_prefix' => '',
+        'connection' => [
+            'default' => [
+                'host' => 'mysql',
+                'dbname' => 'magento',
+                'username' => 'root',
+                'password' => 'qazxcde1231',
+                'active' => '1'
+            ]
+        ]
+    ],
+```
+
+Also delete the line **_'save_path' => 'D://workspace//magento_v2_merged//var//session//'_** in `app/etc/env.php`.
