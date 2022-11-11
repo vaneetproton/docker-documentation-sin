@@ -122,3 +122,17 @@ Project
 ![vs3](img/vs3.png)
 4. On the new VS window, click on **Explorer**, then **Open Folder** and you will see a dropdown to chose from, select folder **Project** and you are good to go, as shown in the image below.
 ![vs4](img/vs4.png)
+
+>Now it is time to setup things on **_Magento_** side. First, create the custom folders which are not present in the GIT.
+```
+$ cd ~/Project/magento_v2_migrated
+$ mkdir -p pub/media/customer_images
+$ mkdir -p pub/media/customer_images/digitized_embroidery
+$ mkdir -p pub/media/customer_images/generated
+$ mkdir -p pub/media/customer_images/library
+$ mkdir -p pub/media/customer_images/uploaded
+$ mv pub/media/catalog/category pub/media/catalog/category-orig
+$ mv pub/media/catalog/product pub/media/catalog/product-orig
+$ mkdir -p pub/media/catalog/category
+$ mkdir -p pub/media/catalog/product
+```
