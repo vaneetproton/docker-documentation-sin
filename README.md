@@ -158,9 +158,7 @@ $ cp app/etc/env.bak.php app/etc/env.php
         ]
     ],
 ```
-
 #### TO
-
 ```
 'db' => [
         'table_prefix' => '',
