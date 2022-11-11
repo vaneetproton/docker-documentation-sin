@@ -88,7 +88,7 @@ Project
    $ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
    $ exit
    ```
-2. Now open again the **Debian** terminal from **Start** option in Windows and setup **docker-sync** and **unison** using below commands.
+3. Now open again the **Debian** terminal from **Start** option in Windows and setup **docker-sync** and **unison** using below commands.
    ```
    $ rbenv install 2.7.6
    $ rbenv global 2.7.6
@@ -111,3 +111,9 @@ Project
    $ sudo cp src/unison /usr/local/bin/unison
    $ sudo cp src/unison-fsmonitor /usr/local/bin/unison-fsmonitor
    ```
+
+**So now we have completed the _Docker_ setup and folder/files setup.** But it is in the _`Debian`_ terminal yet and can't be accessed in **_Visual Studio_** for development purposes. So in order to access the **_Project_** folder in `VS Code`, please follow below steps.
+
+1. Open **_Visual Syudio_** window on your system and click on _`Extensions`_ tab and search **wsl** in the search tab, as shown in the image below.
+![vs1](img/vs1.png)
+2. 
