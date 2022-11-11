@@ -1,5 +1,5 @@
 # Introduction
-Please follow this documentation for setting up the local development environment with Docker on your local machine.
+Please follow this documentation **step-by-step** for setting up the local development environment with Docker on your local machine.
 
 #### GIT
 Please make sure that you have `git clone` all the required repositories on to your machine before proceeding further. If you don't have **GIT** already installed on your machine, please install it using the following [steps](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
@@ -175,3 +175,35 @@ $ cp app/etc/env.bak.php app/etc/env.php
 ```
 
 Also delete the line **_'save_path' => 'D://workspace//magento_v2_merged//var//session//'_** in `app/etc/env.php`.
+
+In last, we will start the **_Docker_** services and import MySQL database and we are ready to do the development. Please follow below steps to start **docker-sync** services first.
+```
+$ cd ~/Project/docker
+$ sudo service docker restart
+$ docker-sync start -d
+```
+The `docker-sync start -d` will take few minutes to complete and will show the output as shown below.
+![sync](img/sync.png)
+
+The next step is to start **docker** containers. Please follow the below steps for that.
+```
+$ cd ~/Project/docker
+$ docker-compose up -d --build
+```
+`docker-compose up -d --build`` will take few (10-15) minutes to set up everything first time. After it is complete, it's time to import **_MySQL database_** into the container.
+First download the **SQL** file bby following the below steps.
+```
+$ cd ~/Project/docker/sql-db
+$ wget http://104.251.216.173/Downloads/db.zip
+$ unzip db.zip
+$ rm db.zip
+```
+Now import the database using below commands.
+```
+$ docker exec -it mysql bash
+$ mysql -u root -p magento < docker-entrypoint-initdb.d/db.sql
+```
+The above command will ask for the password and the password is **_qazxcde1231_**. Type the password on the terminal, it will take few (15-20) minutes to import the database and after it is complete, run the below command.
+```
+$ exit
+```
