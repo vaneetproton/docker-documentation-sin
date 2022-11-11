@@ -114,6 +114,7 @@ Project
 
 **So now we have completed the _Docker_ setup and folder/files setup.** But it is in the _`Debian`_ terminal yet and can't be accessed in **_Visual Studio_** for development purposes. So in order to access the **_Project_** folder in `VS Code`, please follow below steps.
 
-1. Open **_Visual Syudio_** window on your system and click on _`Extensions`_ tab and search **wsl** in the search tab, as shown in the image below.
+1. Open **_Visual Studio_** window on your system and click on _`Extensions`_ tab and search **wsl** in the search tab, as shown in the image below.
 ![vs1](img/vs1.png)
-2. 
+2. Install the first option which shows up in the search index and restart the **_Visual studio_**. Now click on _`Remote Explorer`_ and select **_WSL Targets_** from the drop-down menu and after selecting it, you should see the **_Debian_** option right below as shown in the image below.
+![vs2](img/vs2.png)
