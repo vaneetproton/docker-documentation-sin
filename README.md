@@ -118,3 +118,7 @@ Project
 ![vs1](img/vs1.png)
 2. Install the first option which shows up in the search index and restart the **_Visual studio_**. Now click on _`Remote Explorer`_ and select **_WSL Targets_** from the drop-down menu and after selecting it, you should see the **_Debian_** option right below as shown in the image below.
 ![vs2](img/vs2.png)
+3. From there, Right-Click on **Debian** and choose **_Connect to WSL_** as shown in the image below. It will open a new VS Code window.
+![vs3](img/vs3.png)
+4. On the new VS window, click on **Explorer**, then **Open Folder** and you will see a dropdown to chose from, select folder **Project** and you are good to go, as shown in the image below.
+![vs4](img/vs4.png)
