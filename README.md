@@ -143,7 +143,7 @@ $ rm magento-2-social-login.zip
 
 >Next step would be to setup **_MySQL_** configuration within the `Magento` code.
 ```
-$ cd ~/Project
+$ cd ~/Project/magento_v2_migrated
 $ cp app/etc/env.bak.php app/etc/env.php
 ```
 
