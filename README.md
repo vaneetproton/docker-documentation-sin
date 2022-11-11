@@ -187,6 +187,7 @@ $ sudo service docker restart
 $ docker-sync start -d
 ```
 The `docker-sync start -d` will take few minutes to complete and will show the output as shown below.
+
 ![sync](img/sync.png)
 
 The next step is to start **docker** containers. Please follow the below steps for that.
@@ -194,8 +195,8 @@ The next step is to start **docker** containers. Please follow the below steps f
 $ cd ~/Project/docker
 $ docker-compose up -d --build
 ```
-`docker-compose up -d --build`` will take few (10-15) minutes to set up everything first time. After it is complete, it's time to import **_MySQL database_** into the container.
-First download the **SQL** file bby following the below steps.
+`docker-compose up -d --build` will take few (10-15) minutes to set up everything first time. After it is complete, it's time to import **_MySQL database_** into the container.
+First download the **SQL** file by following the below steps.
 ```
 $ cd ~/Project/docker/sql-db
 $ wget http://104.251.216.173/Downloads/db.zip
@@ -229,3 +230,5 @@ $ php bin/magento setup:upgrade
 $ php bin/magento setup:di:compile
 $ exit
 ```
+
+Now you should be able to access the local development environment at **_https://sinalite243.com/en_ca_**.
