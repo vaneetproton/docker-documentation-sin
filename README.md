@@ -135,6 +135,10 @@ $ mv pub/media/catalog/category pub/media/catalog/category-orig
 $ mv pub/media/catalog/product pub/media/catalog/product-orig
 $ mkdir -p pub/media/catalog/category
 $ mkdir -p pub/media/catalog/product
+$ mv vendor/mageplaza/magento-2-social-login vendor/mageplaza/magento-2-social-login-orig
+$ wget http://104.251.216.173/Downloads/magento-2-social-login.zip
+$ unzip magento-2-social-login.zip -d vendor/mageplaza/
+$ rm magento-2-social-login.zip
 ```
 
 >Next step would be to setup **_MySQL_** configuration within the `Magento` code.
@@ -203,7 +207,25 @@ Now import the database using below commands.
 $ docker exec -it mysql bash
 $ mysql -u root -p magento < docker-entrypoint-initdb.d/db.sql
 ```
-The above command will ask for the password and the password is **_qazxcde1231_**. Type the password on the terminal, it will take few (15-20) minutes to import the database and after it is complete, run the below command.
+The above command will ask for the MySQL password and the password is **_qazxcde1231_**. Type the password on the terminal, it will take few (15-20) minutes to import the database and after it is complete, you have to run three MySQL queries for the changed values. Please follow the below steps to do that.
 ```
+$ mysql -u root -p magento
+$ UPDATE core_config_data SET VALUE='elastic_server' WHERE config_id=2865;
+$ UPDATE core_config_data SET VALUE=0 WHERE config_id=2868;
+$ UPDATE core_config_data SET VALUE='9200' WHERE config_id=2866;
+$ exit
+```
+After following the above steps type once again `exit` and press enter to logout of the MySQL container.
+
+Now we are ready to run some **Magento** commands and after that it is done. Please follow the below steps.
+```
+$ docker exec -it apache2 bash
+$ export no_proxy=.github.com,.getcomposer.org
+$ composer config -g repo.packagist composer https://packagist.org
+$ composer install
+$ composer require mageplaza/module-google-recaptcha
+$ php bin/magento cache:clean
+$ php bin/magento setup:upgrade
+$ php bin/magento setup:di:compile
 $ exit
 ```
