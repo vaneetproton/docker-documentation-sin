@@ -123,7 +123,7 @@ Project
 4. On the new VS window, click on **Explorer**, then **Open Folder** and you will see a dropdown to chose from, select folder **Project** and you are good to go, as shown in the image below.
 ![vs4](img/vs4.png)
 
->Now it is time to setup things on **_Magento_** side. First, create the custom folders which are not present in the GIT.
+#### Now it is time to setup things on **_Magento_** side. First, create the custom folders which are not present in the GIT.
 ```
 $ cd ~/Project/magento_v2_migrated
 $ mkdir -p pub/media/customer_images
