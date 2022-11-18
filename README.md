@@ -19,7 +19,7 @@ WSL means Windows Subsystem for Linux from Microsoft which lets developers run a
 1. Open **Command Prompt** as an **Administrator** on your Windows machine.
 2. Type the following to install the WSL on Windows 10 & 11 and press **Enter**.
    ```
-   wsl --install -d Debian
+   wsl --install -d debian
    ```
    ![image](img/1.png)
 3. After it is completed, it will open a `Debian Terminal` like shown in the image below.
