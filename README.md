@@ -135,6 +135,8 @@ $ mv pub/media/catalog/category pub/media/catalog/category-orig
 $ mv pub/media/catalog/product pub/media/catalog/product-orig
 $ mkdir -p pub/media/catalog/category
 $ mkdir -p pub/media/catalog/product
+$ mv pub/media/images/marketing-assets pub/media/images/marketing-assets-orig
+$ mkdir -p pub/media/images/marketing-assets
 $ mv vendor/mageplaza/magento-2-social-login vendor/mageplaza/magento-2-social-login-orig
 $ wget http://104.251.216.173/Downloads/magento-2-social-login.zip
 $ unzip magento-2-social-login.zip -d vendor/mageplaza/
