@@ -219,7 +219,7 @@ $ UPDATE core_config_data SET VALUE=0 WHERE config_id=2868;
 $ UPDATE core_config_data SET VALUE='9200' WHERE config_id=2866;
 $ exit
 ```
-After following the above steps type once again `exit` and press enter to logout of the MySQL container.
+After performing the above steps type once again `exit` and press enter to logout of the MySQL container.
 
 Now we are ready to run some **Magento** commands and after that it is done. Please follow the below steps.
 ```
