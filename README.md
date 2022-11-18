@@ -131,6 +131,7 @@ $ mkdir -p pub/media/customer_images/digitized_embroidery
 $ mkdir -p pub/media/customer_images/generated
 $ mkdir -p pub/media/customer_images/library
 $ mkdir -p pub/media/customer_images/uploaded
+$ mkdir -p pub/uppy/uploads
 $ mv pub/media/catalog/category pub/media/catalog/category-orig
 $ mv pub/media/catalog/product pub/media/catalog/product-orig
 $ mkdir -p pub/media/catalog/category
