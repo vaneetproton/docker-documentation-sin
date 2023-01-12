@@ -212,11 +212,24 @@ $ docker exec -it mysql bash
 $ mysql -u root -p magento < docker-entrypoint-initdb.d/db.sql
 ```
 The above command will ask for the MySQL password and the password is **_qazxcde1231_**. Type the password on the terminal, it will take few (15-20) minutes to import the database and after it is complete, you have to run three MySQL queries for the changed values. Please follow the below steps to do that.
-```
+```sh
 $ mysql -u root -p magento
 $ UPDATE core_config_data SET VALUE='elastic_server' WHERE config_id=2865;
 $ UPDATE core_config_data SET VALUE=0 WHERE config_id=2868;
 $ UPDATE core_config_data SET VALUE='9200' WHERE config_id=2866;
+$ update core_config_data set value='https://eprintfast243.com/media' where config_id=3216;
+$ update core_config_data set value='https://eprintfast243.com/media' where config_id=3214;
+$ update core_config_data set value='https://sinalite243.com/media' where config_id=3212;
+$ update core_config_data set value='https://sinalite243.com/media' where config_id=3210;
+$ update core_config_data set value='https://eprintfast243.com/media' where config_id=3209;
+$ update core_config_data set value='https://eprintfast243.com/media' where config_id=3207;
+$ update core_config_data set value='https://sinalite243.com/media' where config_id=3205;
+$ update core_config_data set value='https://sinalite243.com/media' where config_id=3203;
+$ update core_config_data set value='https://dashboard.printbest243.com/media' where config_id=3200;
+$ update core_config_data set value='https://dashboard.printbest243.com/media' where config_id=3198;
+$ update core_config_data set value='https://dashboard.printbest243.com/media' where config_id=3196;
+$ update core_config_data set value='https://dashboard.printbest243.com/media' where config_id=3194;
+$ update core_config_data set value='https://dashboard.printbest243.com/static' where config_id=3115;
 $ exit
 ```
 After performing the above steps type once again `exit` and press enter to logout of the MySQL container.
@@ -230,7 +243,9 @@ $ composer install
 $ composer require mageplaza/module-google-recaptcha
 $ php bin/magento cache:clean
 $ php bin/magento setup:upgrade
+$ chmod -R 777 var pub/static generated/
 $ php bin/magento setup:di:compile
+$ chmod -R 777 var pub/static generated/
 $ exit
 ```
 
